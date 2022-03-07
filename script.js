@@ -1,9 +1,12 @@
-function computerPlay(){
-    const wordList= ["Rock","Paper","Scissors"]
-    
-    const computerTurn = wordList[Math.floor(Math.random() *wordList.length)];
+const wordList= ["Rock","Paper","Scissors"]
 
-    return computerTurn
+function computerPlay(wordList){
+    const computerChoise = wordList[Math.floor(Math.random() *wordList.length)];
+    return computerChoise
 }
 
-console.log(computerPlay())
+function userPlay(wordList){
+    const userChoise = window.prompt("0 - Rock \n1 - Paper \n2 -Scissors \NPlease pick a number from 0-2:");
+    return userChoise
+}
+
