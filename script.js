@@ -6,7 +6,8 @@ function computerPlay(wordList){
 }
 
 function userPlay(wordList){
-    const userChoise = window.prompt("0 - Rock \n1 - Paper \n2 -Scissors \NPlease pick a number from 0-2:");
-    return userChoise
+    const userChoise = window.prompt("0 - Rock \n1 - Paper \n2 -Scissors \nPlease pick a number from 0-2:");
+    return wordList[userChoise]
 }
 
+console.log(userPlay(wordList))
