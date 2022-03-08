@@ -2,7 +2,6 @@
 const wordList= ["Rock","Paper","Scissors"]
 let userWins = 0
 let computerWins = 0
-let tieCounter
 
 function computerPlay(){
     const computerChoise = wordList[Math.floor(Math.random() *wordList.length)];
@@ -14,24 +13,45 @@ function userPlay(){
     return wordList[userChoise]
 }
 
-function checkwinner(userSelection, computerSelection){
-    if (userSelection == computerSelection){
-        tieCounter ++ 
-    } else if (((userSelection ="Rock") && (computerSelection = "paper")) || ((userSelection ="Paper") && (computerSelection = "Scissors"))|| ((userSelection ="Scissors") && (computerSelection = "Rock"))){
+function checkWinner(userSelection, computerSelection){
+
+    if(computerSelection==userSelection){
+        return "It's a tie"
+    }else if (
+        (userSelection =="Rock") && (computerSelection == "Paper")||
+        ((userSelection =="Paper") && (computerSelection == "Scissors"))||
+        ((userSelection =="Scissors") && (computerSelection == "Rock"))
+         ){
         computerWins ++
-    } else {
-        userWins ++ 
+        return "Computer wins!" 
+    }else{
+        userWins++
+        return"User Wins!"
     }
-   
 
 }
 
 function singleRound(){
-
     const userSelection = (userPlay(wordList))
     const computerSelection = (computerPlay(wordList))
     console.log ("The computer played " + computerSelection + "\nThe user played " + userSelection)
-    checkwinner(userSelection,computerSelection)
-
+    console.log(checkWinner(userSelection,computerSelection))
 }
 
+function game(){
+    for (let i=0; i<5; i++){
+        singleRound()
+
+    }
+    if (userWins==computerWins){
+        console.log("It's a Tie Game!")
+
+    } else if (userWins>computerWins){
+        console.log("The User Won The Game!")
+        
+    } else {
+        console.log("The Computer Won The Game!")
+    }
+}
+
+game()
