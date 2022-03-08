@@ -9,8 +9,16 @@ function computerPlay(){
 }
 
 function userPlay(){
-    const userChoise = window.prompt("0 - Rock \n1 - Paper \n2 -Scissors \nPlease pick a number from 0-2:");
-    return wordList[userChoise]
+    let keepGoing = true  
+    while(keepGoing){
+        const userChoise = parseInt(window.prompt("0 - Rock \n1 - Paper \n2 -Scissors \nPlease pick a number from 0-2:"));
+        if (userChoise<0 || userChoise>2 || isNaN(userChoise)){
+            keepGoing = true
+        }else {
+            return wordList[userChoise]
+            keepGoing = false
+        }
+}
 }
 
 function checkWinner(userSelection, computerSelection){
@@ -53,5 +61,4 @@ function game(){
         console.log("The Computer Won The Game!")
     }
 }
-
 game()
