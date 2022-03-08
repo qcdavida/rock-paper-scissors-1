@@ -1,5 +1,8 @@
 
 const wordList= ["Rock","Paper","Scissors"]
+let userWins = 0
+let computerWins = 0
+let tieCounter
 
 function computerPlay(){
     const computerChoise = wordList[Math.floor(Math.random() *wordList.length)];
@@ -11,19 +14,24 @@ function userPlay(){
     return wordList[userChoise]
 }
 
-function singleRound(){
-
-    const playerSelection = (userPlay(wordList))
-    const computerSelection = (computerPlay(wordList))
-
-    if (playerSelection == computerSelection){
-        return "Tie!"
-    } else if (((playerSelection ="Rock") && (computerSelection = "paper")) || ((playerSelection ="Paper") && (computerSelection = "Scissors"))|| ((playerSelection ="Scissors") && (computerSelection = "Rock"))){
-        return "Computer Wins!"
+function checkwinner(userSelection, computerSelection){
+    if (userSelection == computerSelection){
+        tieCounter ++ 
+    } else if (((userSelection ="Rock") && (computerSelection = "paper")) || ((userSelection ="Paper") && (computerSelection = "Scissors"))|| ((userSelection ="Scissors") && (computerSelection = "Rock"))){
+        computerWins ++
     } else {
-        return "User Wins!"
+        userWins ++ 
     }
    
+
 }
 
-window.prompt(singleRound())
+function singleRound(){
+
+    const userSelection = (userPlay(wordList))
+    const computerSelection = (computerPlay(wordList))
+    console.log ("The computer played " + computerSelection + "\nThe user played " + userSelection)
+    checkwinner(userSelection,computerSelection)
+
+}
+
