@@ -16,7 +16,14 @@ function singleRound(){
     const playerSelection = (userPlay(wordList))
     const computerSelection = (computerPlay(wordList))
 
-    console.log(playerSelection)
-    console.log(computerSelection)
+    if (playerSelection == computerSelection){
+        return "Tie!"
+    } else if (((playerSelection ="Rock") && (computerSelection = "paper")) || ((playerSelection ="Paper") && (computerSelection = "Scissors"))|| ((playerSelection ="Scissors") && (computerSelection = "Rock"))){
+        return "Computer Wins!"
+    } else {
+        return "User Wins!"
+    }
+   
 }
 
+window.prompt(singleRound())
