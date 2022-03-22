@@ -8,20 +8,18 @@ function computerPlay(){
     return computerChoise
 }
 
-function userPlay(){
-    let keepGoing = true  
-    while(keepGoing){
-        const userChoise = parseInt(window.prompt("0 - Rock \n1 - Paper \n2 -Scissors \nPlease pick a number from 0-2:"));
-        if (userChoise<0 || userChoise>2 || isNaN(userChoise)){
-            keepGoing = true
-        }else {
-            return wordList[userChoise]
-            keepGoing = false
-        }
-}
+
+
+const buttons = document.querySelectorAll('button');
+
+function buttonToInfo(e){
+    console.log(this.classList.value);
+
 }
 
-function checkWinner(userSelection, computerSelection){
+buttons.forEach(button => button.addEventListener('click',buttonToInfo));
+
+/*function checkWinner(userSelection, computerSelection){
 
     if(computerSelection==userSelection){
         return "It's a tie"
@@ -61,4 +59,4 @@ function game(){
         console.log("The Computer Won The Game!")
     }
 }
-game()
+game()*/
